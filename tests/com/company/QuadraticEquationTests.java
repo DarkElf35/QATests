@@ -7,22 +7,38 @@ import org.junit.jupiter.api.function.Executable;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QuadraticEquationTests {
-    QuadraticEquation root = new QuadraticEquation();
+
 
     @Test
-    void result() {
-        String result;
+    void podschetroot() {
+        QuadraticEquation root = new QuadraticEquation();
 
-        result = root.result(0,2,3);
-        assertEquals("Не является квадратным уравнением", result);
+        double[] corni = root.searchRoot(1,-4,-5);
+        double[] otvet = new double[]{5,-1} ;                      //заносим получившиеся корни которые должны быть при расчете уравнения
 
-        result = root.result(2,5,1);
-        assertEquals("Нет  корней", result);
-
-        result = root.result(2,5,2);
-        assertEquals("-0.5, -2.0", result);
-
-        result = root.result(1,2,1);
-        assertEquals("-1.0", result);
+        assertArrayEquals(otvet,corni);
     }
+
+    @Test
+    void podschetroot2() {
+        QuadraticEquation root = new QuadraticEquation();
+
+        double[] corni = root.searchRoot(1,-6,9);
+        double[] otvet = new double[]{3,0} ;                      //заносим получившиеся корни которые должны быть при расчете уравнения
+
+        assertArrayEquals(otvet,corni);
+    }
+
+    @Test
+    void podschetroot3() {
+        QuadraticEquation root = new QuadraticEquation();
+
+        double[] corni = root.searchRoot(3,-4,2);
+        double[] otvet = new double[]{0,0} ;                      //заносим получившиеся корни которые должны быть при расчете уравнения
+
+        assertArrayEquals(otvet,corni);
+    }
+
+
+
 }

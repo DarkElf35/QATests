@@ -1,5 +1,7 @@
 package com.company;
 
+import java.io.IOException;
+
 public class Calculator {
     public int a;
     public int b;
@@ -32,18 +34,16 @@ public Calculator(){}
         return (multi);
     }
 
-    public  double division(int a, int b) {
+    public  double division(double a, double b) throws IOException {
+
         if(b == 0)
         {
-            System.out.println("Ошибка, деление на ноль");
+            throw new IOException("Ошибка, деление на ноль");
 
         }
 
-            double s = ((double) a) / b;
-            return(s);
+
+            return(a/b);
 
     }
-
-
-
 }

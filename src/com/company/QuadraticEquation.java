@@ -1,19 +1,37 @@
 package com.company;
-
+import java.util.Arrays;
 public class QuadraticEquation {
-    public String result(double a, double b, double c) {
-        if (a == 0) {
-            return "Не является квадратным уравнением";
+    private double root1;
+    private double root2;
+
+
+    public double[] searchRoot(double a,double b,double c)
+    {
+       double Diskriminant = b*b - 4*a*c;
+       double root[] = new double[2];
+       if (Diskriminant > 0)
+       {
+           root1 = (-b + Math.sqrt(Diskriminant))/(2*a);
+           root2 = (-b - Math.sqrt(Diskriminant))/(2*a);
+           root[0] = root1;
+           root[1] = root2;
+       }
+        if(Diskriminant == 0)
+        {
+            root1 = (-b + Math.sqrt(Diskriminant))/(2*a);
+            root[0] = root1;
         }
-        double discriminant = b * b - 4 * a * c;
-        if (discriminant > 0) {
-            double x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-            double x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-            return x1 + ", " + x2;
-        } else if (discriminant == 0) {
-            double x = -b / (2 * a);
-            return String.valueOf(x);
-        }
-        return "Нет  корней";
+
+        return root;
     }
+
+    public double getRoot1()
+    {
+        return root1;
+    }
+    public double getRoot2()
+    {
+        return root2;
+    }
+
 }
